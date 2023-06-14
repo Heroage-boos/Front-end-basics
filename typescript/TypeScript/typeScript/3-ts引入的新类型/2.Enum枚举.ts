@@ -73,3 +73,24 @@ const animal=Animal.Dog;
 
 console.log('status2',status2);
 console.log('animal',animal);
+
+let b:number=123;
+const enum Direction7 {
+    top=b,//报错：常量枚举中不能使用计算值
+    down="南"
+}
+
+
+/**
+ * 异构枚举
+ * 异构枚举就是枚举中成员既有数字类型又有字符串类型
+ */
+enum Result {
+    Faild=0,
+    Success="Success"
+}
+
+/**
+ * 枚举成员类型和联合枚举类型
+ */
+//1.枚举成员类型
