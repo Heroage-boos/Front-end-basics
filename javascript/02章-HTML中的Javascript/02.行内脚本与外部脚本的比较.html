@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js外部引入和行内引入</title>
+    <!-- <script src="./外部引入js/index.js"></script> -->
+    <script src="./外部引入js/index.js" defer></script>
+    <!-- 这个属性表示脚本在执行的时候不会改
+变页面的结构。也就是说，脚本会被延迟到整个页面都解析完毕后再运行。因此，在<script>元素上
+设置 defer 属性，相当于告诉浏览器立即下载，但延迟执行。 -->
+    <script src="./外部引入js/index.js" async></script>
+    <!-- async 属性与 defer 类似。当然，它们两者也都只适用于外部脚本，都会告诉浏览器立即开始下载。不过，与 defer 不同的
+    是，标记为 async 的脚本并不保证能按照它们出现的次序执行 -->
+    <!-- 把所有 JavaScript
+文件都放在<head>里，也就意味着必须把所有 JavaScript 代码都下载、解析和解释完成后，才能开始渲
+染页面（页面在浏览器解析到<body>的起始标签时开始渲染）。对于需要很多 JavaScript 的页面，这会
+导致页面渲染的明显延迟，在此期间浏览器窗口完全空白。-->
+  </head>
+  <body>
+    <!-- 行内引用 -->
+    <script>
+      function fn1() {
+        console.log("hello world!");
+      }
+      fn1();
+    </script>
+    <!-- 
+        -等待上一个js解释完之后解析
+        -使用了 src 属性的<script>元素不应该再在<script>和</script>标签中再包含其他
+JavaScript 代码。如果两者都提供的话，则浏览器只会下载并执行脚本文件，从而忽略行内代码。
+    -->
+    <script src="./外部引入js/index.js"></script>
+  </body>
+</html>
